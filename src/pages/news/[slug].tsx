@@ -7,6 +7,7 @@ import styles from '@sevn/styles/News.module.css';
 import { formatDate } from '@sevn/utils/formatDate';
 import { Paragraph } from '@sevn/modules/news/components/paragraph';
 import { AdSenseContainer } from '@sevn/components/adsense-container';
+import NavBar from '@sevn/components/navbar';
 
 interface NewsPageProps {
   news: NewsProps;
@@ -14,27 +15,30 @@ interface NewsPageProps {
 
 const News: React.FC<NewsPageProps> = ({ news }) => {
   return (
-    <Container>
-      <div className={styles.newsContent}>
-        <h1 className={styles.title}>{news.title}</h1>
-        <p className={styles.resume}>{news.resume}</p>
+    <>
+      <NavBar />
+      <Container>
+        <div className={styles.newsContent}>
+          <h1 className={styles.title}>{news.title}</h1>
+          <p className={styles.resume}>{news.resume}</p>
 
-        <AdSenseContainer />
+          <AdSenseContainer />
 
-        <p className={styles.publicationDate}>
-          {`${formatDate(news.updatedAt)}, Por: ${news.author}`}
-        </p>
+          <p className={styles.publicationDate}>
+            {`${formatDate(news.updatedAt)}, Por: ${news.author}`}
+          </p>
 
-        <div className={styles.contentBox}>
-          {
-            news.content.map((paragraph, index) => (
-              <Paragraph key={index} content={paragraph.content} />
-            ))
-          }
+          <div className={styles.contentBox}>
+            {
+              news.content.map((paragraph, index) => (
+                <Paragraph key={index} content={paragraph.content} />
+              ))
+            }
+          </div>
         </div>
-      </div>
 
-    </Container>
+      </Container>
+    </>
   );
 };
 
