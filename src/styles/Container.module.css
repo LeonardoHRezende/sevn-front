@@ -5,3 +5,10 @@
   padding-bottom: 2rem;
   background-color: #fff;
 }
+
+@media (max-width: 1280px) {
+  .container{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

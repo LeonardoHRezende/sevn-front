@@ -6,6 +6,7 @@ import { NewsProps } from '@sevn/shared/interface';
 import styles from '@sevn/styles/News.module.css';
 import { formatDate } from '@sevn/utils/formatDate';
 import { Paragraph } from '@sevn/modules/news/components/paragraph';
+import { AdSenseContainer } from '@sevn/components/adsense-container';
 
 interface NewsPageProps {
   news: NewsProps;
@@ -17,14 +18,20 @@ const News: React.FC<NewsPageProps> = ({ news }) => {
       <div className={styles.newsContent}>
         <h1 className={styles.title}>{news.title}</h1>
         <p className={styles.resume}>{news.resume}</p>
+
+        <AdSenseContainer />
+
         <p className={styles.publicationDate}>
           {`${formatDate(news.updatedAt)}, Por: ${news.author}`}
         </p>
-        {
-          news.content.map((paragraph, index) => (
-            <Paragraph key={index} content={paragraph.content} />
-          ))
-        }
+
+        <div className={styles.contentBox}>
+          {
+            news.content.map((paragraph, index) => (
+              <Paragraph key={index} content={paragraph.content} />
+            ))
+          }
+        </div>
       </div>
 
     </Container>

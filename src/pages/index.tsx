@@ -6,6 +6,7 @@ import { NewsHighLightContent } from '@sevn/shared/interface';
 import styles from '@sevn/styles/Home.module.css';
 import { DataApiGateway } from '@sevn/utils/axios';
 import { HighLightContent } from '@sevn/modules/home/components/high-light-news';
+import { AdSenseContainer } from '@sevn/components/adsense-container';
 
 interface HomeProps {
   topContent: NewsHighLightContent[];
@@ -15,8 +16,9 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ topContent, highLightContent }) => {
   return (
     <Container>
-
       <div className={styles.homeContent}>
+        <AdSenseContainer />
+        
         <div className={styles.gridContainer}>
           {
             topContent?.map((content, index) => (

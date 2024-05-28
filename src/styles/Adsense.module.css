@@ -1,0 +1,15 @@
+.adSenseContainer {
+  width: 100%;
+  height: 190px;
+  background-color: #ebeff1;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+.adSenseExampleText{
+  font-size: 2rem;
+  font-weight: 700;
+  opacity: 0.5;
+}

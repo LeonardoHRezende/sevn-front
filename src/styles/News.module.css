@@ -26,3 +26,11 @@
   font-weight: 700;
   opacity: 0.2;
 }
+
+.contentBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
