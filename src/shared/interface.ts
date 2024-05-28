@@ -1,7 +1,8 @@
-export interface NewsHighLightContent extends Pick<NewsProps, 'title' | 'coverImage' | 'theme' | 'themeColor' | 'contentHighlight'> {}
+export interface NewsHighLightContent extends Pick<NewsProps, 'slug' | 'title' | 'coverImage' | 'theme' | 'themeColor' | 'contentHighlight'> {}
 
 export interface NewsProps {
   id: string;
+  slug: string;
   theme: string;
   themeColor: string;
   title: string;

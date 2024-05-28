@@ -5,6 +5,7 @@ import { TopNewsContent } from '@sevn/modules/home/components/top-news';
 import { NewsHighLightContent } from '@sevn/shared/interface';
 import styles from '@sevn/styles/Home.module.css';
 import { DataApiGateway } from '@sevn/utils/axios';
+import { HighLightContent } from '@sevn/modules/home/components/high-light-news';
 
 interface HomeProps {
   topContent: NewsHighLightContent[];
@@ -15,19 +16,35 @@ const Home: React.FC<HomeProps> = ({ topContent, highLightContent }) => {
   return (
     <Container>
 
-      <div className={styles.gridContainer}>
-        {
-          topContent?.map((content, index) => (
-            <div
-              key={`content-${index}`}
-              className={styles.gridItem}>
-              <TopNewsContent
-                content={content}
-                isMainContent={index === 0}
-              />
-            </div>
-          ))
-        }
+      <div className={styles.homeContent}>
+        <div className={styles.gridContainer}>
+          {
+            topContent?.map((content, index) => (
+              <div
+                key={`content-${index}`}
+                className={styles.gridItem}>
+                <TopNewsContent
+                  content={content}
+                  isMainContent={index === 0}
+                />
+              </div>
+            ))
+          }
+        </div>
+
+        <div className={styles.highLightGridContainer}>
+          {
+            highLightContent?.map((content, index) => (
+              <div
+                key={`content-${index}`}
+                className={styles.highLightGridItem}>
+                <HighLightContent
+                  content={content}
+                />
+              </div>
+            ))
+          }
+        </div>
       </div>
 
     </Container>
