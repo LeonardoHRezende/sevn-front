@@ -1,0 +1,28 @@
+.newsContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: 0 auto;
+    max-width: 980px;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.title{
+  font-size: 3.625rem;
+}
+
+.resume{
+  font-size: 1.5625rem;
+}
+
+.paragraph{
+  font-size: 1.25rem;
+}
+
+.publicationDate{
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.2;
+}

@@ -54,16 +54,26 @@ const Home: React.FC<HomeProps> = ({ topContent, highLightContent }) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const [topContent, highLightContent] = await Promise.all([
+      DataApiGateway.get('/top'),
+      DataApiGateway.get('/highlights?page=1'),
+    ]);
 
-  const [topContent, highLightContent] = await Promise.all([
-    await DataApiGateway.get('/top'),
-    await DataApiGateway.get('/highlights?page=1'),
-  ]);
+    return {
+      props: {
+        topContent: topContent.data,
+        highLightContent: highLightContent.data,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching content:', error);
 
-  return {
-    props: {
-      topContent: topContent.data,
-      highLightContent: highLightContent.data,
-    },
-  };
+    return {
+      props: {
+        topContent: [],
+        highLightContent: []
+      }
+    };
+  }
 };
