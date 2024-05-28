@@ -1,9 +1,10 @@
+import { GetServerSideProps } from 'next';
+
 import Container from '@sevn/components/container';
 import { TopNewsContent } from '@sevn/modules/home/components/top-news';
 import { NewsHighLightContent } from '@sevn/shared/interface';
 import styles from '@sevn/styles/Home.module.css';
 import { DataApiGateway } from '@sevn/utils/axios';
-import { GetServerSideProps } from 'next';
 
 interface HomeProps {
   topContent: NewsHighLightContent[];
@@ -13,6 +14,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ topContent, highLightContent }) => {
   return (
     <Container>
+
       <div className={styles.gridContainer}>
         {
           topContent?.map((content, index) => (
@@ -21,13 +23,13 @@ const Home: React.FC<HomeProps> = ({ topContent, highLightContent }) => {
               className={styles.gridItem}>
               <TopNewsContent
                 content={content}
-                isLoading={false}
                 isMainContent={index === 0}
               />
             </div>
           ))
         }
       </div>
+
     </Container>
   );
 };
